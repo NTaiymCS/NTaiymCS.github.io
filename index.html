@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nan Taiym | Software Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+
+        <div class="brand">
+            <div class="brand-mark">NT</div>
+
+            <div>
+                <h1>Nan Taiym</h1>
+                <span>Software Engineer</span>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-right">
+            <span>Chicago, IL</span>
+            <a class="terminal-button" href="#resume">
+                Career Terminal ↗
+            </a>
+        </div>
+
+    </header>
+
+
+    <main class="page-shell" id="home">
+
+
+        <!-- =====================================================
+             TOP THREE-COLUMN AREA
+        ====================================================== -->
+
+        <section class="top-layout">
+
+
+            <!-- =================================================
+                 LEFT COLUMN — PROFILE
+            ================================================== -->
+
+            <aside class="profile-card">
+
+                <img class="profile-photo"
+                     src="assets/profile.jpg"
+                     alt="Nan Taiym">
+
+                <div class="profile-content">
+
+                    <p class="eyebrow">
+                        Software Engineer
+                    </p>
+
+                    <h2>
+                        Nan Taiym
+                    </h2>
+
+                    <p class="profile-title">
+                        Software Engineer
+                    </p>
+
+                    <div class="accent-line"></div>
+
+                    <p class="profile-summary">
+                        I am a rising senior at Western Governors University
+                        pursuing a Bachelor's degree in Software Engineering.
+                        I am passionate about and driven by technology, and I
+                        am excited to continue growing as a software engineer.
+                        I have gained hands-on experience through my classwork,
+                        software engineering internships, and professional IT
+                        roles, where I have worked on multiple applications and
+                        projects, including full-stack development, databases,
+                        and cloud technologies.
+                    </p>
+
+
+                    <a class="resume-button"
+                       href="assets/NTaiym_Resume.pdf"
+                       target="_blank">
+                        <span>View Resume</span>
+                        <span>↗</span>
+                    </a>
+
+
+                    <div class="social-links">
+
+                        <a href="https://github.com/NTaiymCS"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="GitHub">
+                            GH
+                        </a>
+
+                        <a href="#"
+                           aria-label="LinkedIn">
+                            in
+                        </a>
+
+                        <a href="mailto:"
+                           aria-label="Email">
+                            @
+                        </a>
+
+                        <a href="#"
+                           aria-label="Code">
+                            &lt;/&gt;
+                        </a>
+
+                    </div>
+
+
+                    <div class="focus-list">
+
+                        <div class="focus-item">
+                            <span>▣</span>
+                            IT Support &amp; Systems
+                        </div>
+
+                        <div class="focus-item">
+                            <span>&lt;/&gt;</span>
+                            Application Development
+                        </div>
+
+                        <div class="focus-item">
+                            <span>☁</span>
+                            Cloud &amp; AWS
+                        </div>
+
+                        <div class="focus-item">
+                            <span>▤</span>
+                            Data Management
+                        </div>
+
+                        <div class="focus-item">
+                            <span>◇</span>
+                            Security &amp; Infrastructure
+                        </div>
+
+                        <div class="focus-item">
+                            <span>♧</span>
+                            UX &amp; Technology
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+
+
+            <!-- =================================================
+                 CENTER COLUMN — MAP + PROJECTS
+            ================================================== -->
+
+            <section class="center-column">
+
+
+                <!-- INTERACTIVE CITY MAP -->
+
+                <div class="map-card"
+                     id="mapCard">
+
+                    <div class="map-viewport"
+                         id="mapViewport">
+
+                        <img id="cityMap"
+                             src="assets/city-map.jpg"
+                             alt="Interactive technology city map"
+                             draggable="false">
+
+                    </div>
+
+
+                    <div class="map-help">
+
+                        <span>
+                            ◉ Drag to explore
+                        </span>
+
+                        <span>
+                            •
+                        </span>
+
+                        <span>
+                            Scroll to zoom
+                        </span>
+
+                        <span>
+                            •
+                        </span>
+
+                        <span>
+                            Click a zone to learn more
+                        </span>
+
+                    </div>
+
+
+                    <div class="map-controls">
+
+                        <button type="button"
+                                id="zoomIn"
+                                aria-label="Zoom in">
+                            +
+                        </button>
+
+                        <button type="button"
+                                id="zoomOut"
+                                aria-label="Zoom out">
+                            −
+                        </button>
+
+                        <button type="button"
+                                id="resetMap"
+                                aria-label="Reset map">
+                            ◎
+                        </button>
+
+                        <span id="zoomValue">
+                            100%
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     PROJECTS
+                ================================================== -->
+
+                <section class="projects-card"
+                         id="projects">
+
+                    <div class="section-heading compact-heading">
+
+                        <div>
+
+                            <p class="eyebrow">
+                                Projects / Experiences
+                            </p>
+
+                            <h2>
+                                Selected Projects
+                            </h2>
+
+                        </div>
+
+                        <a href="https://github.com/NTaiymCS"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            View GitHub →
+                        </a>
+
+                    </div>
+
+
+                    <div class="project-grid">
+
+
+                        <!-- =================================================
+                             D280 WORLD MAP
+                        ================================================== -->
+
+                        <article class="project-card">
+
+                            <div class="project-icon">
+                                ◉
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Interactive World Map
+                                </h3>
+
+                                <p>
+                                    Angular · TypeScript · World Bank API
+                                </p>
+
+                                <small>
+                                    Interactive world map application that uses
+                                    the World Bank API to retrieve and display
+                                    country information and data.
+                                </small>
+
+                                <span class="project-tag">
+                                    WGU · D280
+                                </span>
+
+                                <a class="project-link"
+                                   href="https://github.com/NTaiymCS/d280-world-map"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    View on GitHub →
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- =================================================
+                             D479 TANITI
+                        ================================================== -->
+
+                        <article class="project-card">
+
+                            <div class="project-icon">
+                                ◇
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Taniti Travel Website
+                                </h3>
+
+                                <p>
+                                    HTML · CSS · UX Design
+                                </p>
+
+                                <small>
+                                    Travel website designed for the Taniti tourism
+                                    scenario, focused on usability, accessibility,
+                                    navigation, and creating an intuitive experience
+                                    for visitors.
+                                </small>
+
+                                <span class="project-tag">
+                                    WGU · D479
+                                </span>
+
+                                <a class="project-link"
+                                   href="https://github.com/NTaiymCS/taniti-travel-website"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    View on GitHub →
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- =================================================
+                             D279 PET WEBSITE
+                        ================================================== -->
+
+                        <article class="project-card">
+
+                            <div class="project-icon">
+                                ♧
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Pet Website
+                                </h3>
+
+                                <p>
+                                    HTML · CSS · Web Development
+                                </p>
+
+                                <small>
+                                    Multi-page website created as a web development
+                                    project with separate pages for pets, services,
+                                    consultation, and additional information.
+                                </small>
+
+                                <span class="project-tag">
+                                    WGU · D279
+                                </span>
+
+                                <a class="project-link"
+                                   href="https://github.com/NTaiymCS/d279-Pet-Website"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    View on GitHub →
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- =================================================
+                             PERSONALITY TEST
+                        ================================================== -->
+
+                        <article class="project-card">
+
+                            <div class="project-icon">
+                                ◎
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Personality Test
+                                </h3>
+
+                                <p>
+                                    C++ · Logic · User Input
+                                </p>
+
+                                <small>
+                                    Interactive C++ program that asks a series
+                                    of questions and compares the user's answers
+                                    to a character.
+                                </small>
+
+                                <a class="project-link"
+                                   href="https://github.com/NTaiymCS/Personality-Test"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    View on GitHub →
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- =================================================
+                             STACK SYMBOLS
+                        ================================================== -->
+
+                        <article class="project-card">
+
+                            <div class="project-icon">
+                                ⌘
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Stack Symbols
+                                </h3>
+
+                                <p>
+                                    C · Data Structures · Stack
+                                </p>
+
+                                <small>
+                                    Program that reads symbols from data,
+                                    pushes them into a stack, and checks
+                                    for matching symbols and errors.
+                                </small>
+
+                                <a class="project-link"
+                                   href="https://github.com/NTaiymCS/StackSymbols"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    View on GitHub →
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- =================================================
+                             ARRAY SEARCH
+                        ================================================== -->
+
+                        <article class="project-card">
+
+                            <div class="project-icon">
+                                ↔
+                            </div>
+
+                            <div>
+
+                                <h3>
+                                    Array Search
+                                </h3>
+
+                                <p>
+                                    C · Algorithms · Searching
+                                </p>
+
+                                <small>
+                                    Array project using sorting, linear search,
+                                    binary search, and comparison counting.
+                                </small>
+
+                                <a class="project-link"
+                                   href="https://github.com/NTaiymCS/Array-Search"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    View on GitHub →
+                                </a>
+
+                            </div>
+
+                        </article>
+
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =================================================
+                 RIGHT COLUMN
+            ================================================== -->
+
+            <aside class="right-column">
+
+
+                <!-- TECHNICAL SNAPSHOT -->
+
+                <section class="info-card technical-card">
+
+                    <div class="section-heading">
+
+                        <p class="eyebrow">
+                            Technical Snapshot
+                        </p>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span>
+                            Programming
+                        </span>
+
+                        <strong>
+                            C · C++ · Java · Python
+                        </strong>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span>
+                            Web
+                        </span>
+
+                        <strong>
+                            HTML · CSS · JavaScript · Angular
+                        </strong>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span>
+                            Tools
+                        </span>
+
+                        <strong>
+                            Git · Jira · ServiceNow · Docker
+                        </strong>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span>
+                            Data
+                        </span>
+
+                        <strong>
+                            MySQL · PostgreSQL · Power BI
+                        </strong>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span>
+                            Cloud
+                        </span>
+
+                        <strong>
+                            AWS · S3 · DynamoDB · Lambda
+                        </strong>
+
+                    </div>
+
+
+                    <div class="skill-row">
+
+                        <span>
+                            API
+                        </span>
+
+                        <strong>
+                            API Gateway
+                        </strong>
+
+                    </div>
+
+
+                    <p class="terminal-line">
+                        &gt; building impactful solutions...
+                    </p>
+
+                </section>
+
+
+
+                <!-- ENGINEERING FOCUS -->
+
+                <section class="info-card focus-card">
+
+                    <div class="section-heading">
+
+                        <p class="eyebrow">
+                            Engineering Focus
+                        </p>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div>
+                            <span>
+                                Software Engineering
+                            </span>
+
+                            <b>
+                                90%
+                            </b>
+                        </div>
+
+                        <div class="progress">
+                            <i style="width:90%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div>
+                            <span>
+                                Application Development
+                            </span>
+
+                            <b>
+                                90%
+                            </b>
+                        </div>
+
+                        <div class="progress">
+                            <i style="width:90%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div>
+                            <span>
+                                Data &amp; Applications
+                            </span>
+
+                            <b>
+                                88%
+                            </b>
+                        </div>
+
+                        <div class="progress">
+                            <i style="width:88%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div>
+                            <span>
+                                Cloud &amp; Infrastructure
+                            </span>
+
+                            <b>
+                                88%
+                            </b>
+                        </div>
+
+                        <div class="progress">
+                            <i style="width:88%"></i>
+                        </div>
+
+                    </div>
+
+
+                    <div class="progress-item">
+
+                        <div>
+                            <span>
+                                IT &amp; Technology
+                            </span>
+
+                            <b>
+                                90%
+                            </b>
+                        </div>
+
+                        <div class="progress">
+                            <i style="width:90%"></i>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- QUOTE -->
+
+                <section class="quote-card">
+
+                    <span class="quote-mark">
+                        “
+                    </span>
+
+                    <p>
+                        Technology doesn't just solve problems —
+                        it creates new possibilities.
+                    </p>
+
+                    <small>
+                        — Nan Taiym
+                    </small>
+
+                </section>
+
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             SOFTWARE ENGINEERING SKILLS
+        ====================================================== -->
+
+        <section class="lower-section skills-section"
+                 id="skills">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        Technical Skills
+                    </p>
+
+                    <h2>
+                        Software Engineering Skills
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+
+                <article class="skill-box">
+
+                    <span>
+                        Programming
+                    </span>
+
+                    <h3>
+                        C · C++ · Java · Python
+                    </h3>
+
+                    <p>
+                        Programming, object-oriented development,
+                        algorithms, and data structures.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-box">
+
+                    <span>
+                        Web Development
+                    </span>
+
+                    <h3>
+                        HTML · CSS · JavaScript · Angular
+                    </h3>
+
+                    <p>
+                        Front-end development, interfaces,
+                        APIs, and web applications.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-box">
+
+                    <span>
+                        Databases
+                    </span>
+
+                    <h3>
+                        SQL · MySQL · PostgreSQL
+                    </h3>
+
+                    <p>
+                        Database design, SQL queries, functions,
+                        triggers, and data management.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-box">
+
+                    <span>
+                        Cloud
+                    </span>
+
+                    <h3>
+                        AWS · S3 · DynamoDB · Lambda
+                    </h3>
+
+                    <p>
+                        Cloud services, web applications,
+                        APIs, and infrastructure concepts.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-box">
+
+                    <span>
+                        Tools
+                    </span>
+
+                    <h3>
+                        Git · Docker · Jira · ServiceNow
+                    </h3>
+
+                    <p>
+                        Version control, containers, issue tracking,
+                        and IT service management.
+                    </p>
+
+                </article>
+
+
+                <article class="skill-box">
+
+                    <span>
+                        Data
+                    </span>
+
+                    <h3>
+                        Power BI · Data Applications
+                    </h3>
+
+                    <p>
+                        Data visualization, reporting, analytics,
+                        and application development.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             RESUME
+        ====================================================== -->
+
+        <section class="lower-section resume-section"
+                 id="resume">
+
+            <div class="section-heading">
+
+                <div>
+
+                    <p class="eyebrow">
+                        Career Terminal
+                    </p>
+
+                    <h2>
+                        Resume
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="resume-panel">
+
+                <div>
+
+                    <p class="resume-label">
+                        Software Engineer
+                    </p>
+
+                    <h3>
+                        Nan Taiym
+                    </h3>
+
+                    <p>
+                        View my one-page resume for education,
+                        technical skills, projects, and professional
+                        experience.
+                    </p>
+
+                </div>
+
+
+                <div class="resume-actions">
+
+                    <a class="primary-button"
+                       href="assets/NTaiym_Resume.pdf"
+                       target="_blank">
+                        View Resume PDF ↗
+                    </a>
+
+                    <a class="secondary-button"
+                       href="assets/NTaiym_Resume.pdf"
+                       download>
+                        Download PDF
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FOOTER
+        ====================================================== -->
+
+        <footer class="site-footer"
+                id="contact">
+
+            <span>
+                ● System Online
+            </span>
+
+            <span>
+                Nan Taiym · Software Engineer Portfolio
+            </span>
+
+            <span>
+                Chicago, IL
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
