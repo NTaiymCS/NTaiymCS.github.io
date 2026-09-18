@@ -8,7 +8,7 @@
 - `script.js` — city zoom/pan, zone modals, project modals, navigation
 - `assets/nan-photo.jpg` — selected personal photo
 - `assets/digital-city.jpg` — digital city visual
-- `assets/NTaiym_Resume.docx` — supplied resume
+- `assets/NTaiym_Resume.pdf` — supplied resume
 
 ## Run locally
 
@@ -19,8 +19,6 @@ Open `index.html` in a browser, or use VS Code Live Server.
 The project intentionally leaves the project/GitHub area ready for the actual project files and links you said you will provide.
 
 The resume content is based on the supplied `NTaiym_Resume.docx`. No skill percentages, project counts, employers, or accomplishments were invented.
-
-The date `NOV 2024 – AUG 20` is displayed exactly as it appears in the supplied resume rather than being guessed or changed.
 
 ## City controls
 
