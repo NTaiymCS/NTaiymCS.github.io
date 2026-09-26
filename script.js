@@ -1,231 +1,189 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Map controls
-    const mapViewport = document.getElementById("mapViewport");
-    const cityMap = document.getElementById("cityMap");
-    const zoomIn = document.getElementById("zoomIn");
-    const zoomOut = document.getElementById("zoomOut");
-    const resetMap = document.getElementById("resetMap");
-    const zoomValue = document.getElementById("zoomValue");
+function trackPortfolioVisit() {
+    const VISITOR_ALERT_URL =
+        "https://portfolio-visitor-alert.ntaiymcs.workers.dev";
 
-    if (!mapViewport || !cityMap) {
+    if (window.location.protocol === "file:") {
         return;
     }
 
-    let scale = 1;
-    let positionX = 0;
-    let positionY = 0;
+    const visitData = {
+        page: window.location.pathname,
+        referrer: document.referrer || "Direct visit",
+        screen: `${window.innerWidth}x${window.innerHeight}`,
+        language: navigator.language || "Unknown",
+        timezone:
+            Intl.DateTimeFormat()
+                .resolvedOptions()
+                .timeZone || "Unknown"
+    };
 
-    let dragging = false;
-    let startX = 0;
-    let startY = 0;
-    let startPositionX = 0;
-    let startPositionY = 0;
+    fetch(VISITOR_ALERT_URL, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(visitData),
+        keepalive: true
+    }).catch(() => { });
+}
 
-    const MIN_ZOOM = 1;
-    const MAX_ZOOM = 2.5;
-    const ZOOM_STEP = 0.1;
+trackPortfolioVisit();
 
-   // Update the map
-    function updateMap() {
-        cityMap.style.transform =  `translate(${positionX}px, ${positionY}px) scale(${scale})`;
-        if (zoomValue) {
-            zoomValue.textContent = `${Math.round(scale * 100)}%`;
+
+const slides = document.querySelectorAll(".photo-slide");
+const slideDots = document.getElementById("slideDots");
+
+let currentSlide = 0;
+
+function showSlide(index) {
+    if (slides.length === 0) {
+        return;
+    }
+
+    slides.forEach(function (slide, i) {
+        slide.classList.toggle("active", i === index);
+    });
+
+    if (slideDots) {
+        const dots = slideDots.querySelectorAll(".slide-dot");
+
+        dots.forEach(function (dot, i) {
+            dot.classList.toggle("active", i === index);
+        });
+    }
+}
+
+function createSlideDots() {
+    if (!slideDots || slides.length === 0) {
+        return;
+    }
+
+    slides.forEach(function (slide, index) {
+        const dot = document.createElement("button");
+
+        dot.type = "button";
+        dot.className = "slide-dot";
+        dot.setAttribute("aria-label", `Go to photo ${index + 1}`);
+
+        dot.addEventListener("click", function () {
+            currentSlide = index;
+            showSlide(currentSlide);
+        });
+
+        slideDots.appendChild(dot);
+    });
+}
+
+function nextSlide() {
+    if (slides.length === 0) {
+        return;
+    }
+
+    currentSlide++;
+
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+
+    showSlide(currentSlide);
+}
+
+function previousSlide() {
+    if (slides.length === 0) {
+        return;
+    }
+
+    currentSlide--;
+
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+
+    showSlide(currentSlide);
+}
+
+createSlideDots();
+showSlide(currentSlide);
+
+if (slides.length > 1) {
+    setInterval(nextSlide, 5000);
+}
+
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowRight") {
+        nextSlide();
+    }
+
+    if (event.key === "ArrowLeft") {
+        previousSlide();
+    }
+});
+
+
+const navigationLinks = document.querySelectorAll(
+    'a[href^="#"]'
+);
+
+navigationLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+        const targetId = link.getAttribute("href");
+
+        if (targetId === "#") {
+            return;
         }
-    }
 
-    // Keep the map from being dragged too far
-    function clampPosition() {
-        const maxX = (mapViewport.clientWidth * (scale - 1)) / 2;
+        const target = document.querySelector(targetId);
 
-        const maxY = (mapViewport.clientHeight * (scale - 1)) / 2;
-
-        positionX = Math.max(-maxX,Math.min(maxX, positionX));
-
-        positionY = Math.max(
-            -maxY,
-            Math.min(maxY, positionY)
-        );
-    }
-
-
-    // Change the zoom
-    function setZoom(newScale) {
-
-        scale = Math.max(
-            MIN_ZOOM,
-            Math.min(MAX_ZOOM, newScale)
-        );
-
-        if (scale === 1) {
-            positionX = 0;
-            positionY = 0;
-        } else {
-            clampPosition();
-        }
-
-        updateMap();
-    }
-
-
-    // Zoom in
-    if (zoomIn) {
-
-        zoomIn.addEventListener("click", () => {
-            setZoom(scale + ZOOM_STEP);
-        });
-
-    }
-
-
-    // Zoom out
-    if (zoomOut) {
-
-        zoomOut.addEventListener("click", () => {
-            setZoom(scale - ZOOM_STEP);
-        });
-
-    }
-
-
-    // Reset the map
-    if (resetMap) {
-
-        resetMap.addEventListener("click", () => {
-
-            scale = 1;
-            positionX = 0;
-            positionY = 0;
-
-            updateMap();
-        });
-
-    }
-
-
-    // Zoom with the mouse wheel
-    mapViewport.addEventListener(
-        "wheel",
-        (event) => {
-
+        if (target) {
             event.preventDefault();
 
-            const direction =
-                event.deltaY < 0 ? 1 : -1;
-
-            setZoom(
-                scale + direction * ZOOM_STEP
-            );
-        },
-        { passive: false }
-    );
-
-
-    // Start dragging the map
-    mapViewport.addEventListener(
-        "mousedown",
-        (event) => {
-
-            dragging = true;
-
-            startX = event.clientX;
-            startY = event.clientY;
-
-            startPositionX = positionX;
-            startPositionY = positionY;
-
-            mapViewport.classList.add("dragging");
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
         }
-    );
+    });
+});
 
 
-    // Move the map
-    window.addEventListener(
-        "mousemove",
-        (event) => {
+const sections = document.querySelectorAll("section[id]");
+const navLinks = document.querySelectorAll(
+    'header a[href^="#"]'
+);
 
-            if (!dragging) {
-                return;
-            }
+window.addEventListener("scroll", function () {
+    let currentSection = "";
 
-            positionX =
-                startPositionX +
-                (event.clientX - startX);
+    sections.forEach(function (section) {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
 
-            positionY =
-                startPositionY +
-                (event.clientY - startY);
-
-            clampPosition();
-            updateMap();
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+            currentSection = section.getAttribute("id");
         }
-    );
+    });
 
+    navLinks.forEach(function (link) {
+        link.classList.remove("active");
 
-    // Stop dragging
-    window.addEventListener(
-        "mouseup",
-        () => {
-
-            dragging = false;
-
-            mapViewport.classList.remove("dragging");
+        if (
+            link.getAttribute("href") ===
+            `#${currentSection}`
+        ) {
+            link.classList.add("active");
         }
-    );
+    });
+});
 
 
-    // Stop dragging if the mouse leaves the map
-    mapViewport.addEventListener(
-        "mouseleave",
-        () => {
+const images = document.querySelectorAll("img");
 
-            if (dragging) {
-
-                dragging = false;
-
-                mapViewport.classList.remove("dragging");
-            }
-        }
-    );
-
-
-    // Set the starting map position
-    updateMap();
-
-
-    // Smooth navigation
-    document
-        .querySelectorAll('a[href^="#"]')
-        .forEach((link) => {
-
-            link.addEventListener(
-                "click",
-                (event) => {
-
-                    const targetId =
-                        link.getAttribute("href");
-
-                    if (
-                        !targetId ||
-                        targetId === "#"
-                    ) {
-                        event.preventDefault();
-                        return;
-                    }
-
-                    const target =
-                        document.querySelector(targetId);
-
-                    if (target) {
-
-                        event.preventDefault();
-
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-                    }
-                }
-            );
-        });
-
+images.forEach(function (image) {
+    image.addEventListener("error", function () {
+        image.style.display = "none";
+    });
 });
